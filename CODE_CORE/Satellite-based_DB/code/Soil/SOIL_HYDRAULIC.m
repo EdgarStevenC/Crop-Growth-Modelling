@@ -1,0 +1,102 @@
+function [T] = SOIL_HYDRAULIC(SOILFETai, LAYER)
+% figure, errorbar(SOILFETai(:,4),SOILFETai(:,26)); title('SAND'), grid on, xlabel('sample'), ylabel('g/Kg')
+% figure, errorbar(SOILFETai(:,5),SOILFETai(:,28)); title('SILT'), grid on, xlabel('sample'), ylabel('g/Kg')
+% figure, errorbar(SOILFETai(:,6),SOILFETai(:,29)); title('CLAY'), grid on, xlabel('sample'), ylabel('g/Kg')
+% 
+% figure, errorbar(SOILFETai(:,9),SOILFETai(:,31)); title('Organic Carbon'), grid on, xlabel('sample'), ylabel('dg/kg')
+% figure, errorbar(SOILFETai(:,10),SOILFETai(:,32)); title('N'), grid on, xlabel('sample'), ylabel('cg/kg')
+% 
+% figure, subplot(1,2,1), boxplot([SOILFETai(:,4),SOILFETai(:,5),SOILFETai(:,6)],'Notch','on','Labels',{'Sand','Silt', 'Clay'}), grid on, title('MEAN'), xlabel('sample'), ylabel('g/Kg')
+% hold on, subplot(1,2,2), boxplot([SOILFETai(:,15),SOILFETai(:,16),SOILFETai(:,17)],'Notch','on','Labels',{'Sand','Silt', 'Clay'}), grid on, title('MEDIAN'), xlabel('sample'), ylabel('g/Kg')
+% 
+% figure, boxplot([SOILFETai(:,9),SOILFETai(:,10)],'Notch','on','Labels',{'OC(dg/kg)','N(cg/kg)'}), grid on, title('MEAN'), xlabel('sample')
+%% Hydraulic
+SOILFET = SOILFETai;
+SOILFET(:,4) = SOILFET(:,4)/1000;   % SAND   g/kg (%)  -->  mg/kg (ppm)
+SOILFET(:,5) = SOILFET(:,5)/1000;   % SILT   g/kg (%)  -->  mg/kg (ppm)
+SOILFET(:,6) = SOILFET(:,6)/1000;   % CLAY   g/kg (%)  -->  mg/kg (ppm)
+
+SOILFET(:,7) = SOILFET(:,7)/100;    % BULK   cg/cm3    -->  g/cm3
+SOILFET(:,8) = SOILFET(:,8)/1000;   % COARSE cm3/dm3   -->  um3/dm3 (%)
+
+SOILFET(:,9) = SOILFET(:,9)/100;    % OC     dg/kg     -->  mg/kg (ppm)
+SOILFET(:,10) = SOILFET(:,10)/10;   % N      cg/kg     -->  mg/kg (ppm)
+SOILFET(:,11) = SOILFET(:,11)/10;   % PH  (unitless)
+
+% figure, boxplot([SOILFET(:,9)],'Notch','on','Labels',{'OC(dg/kg) /100'}), grid on, title('MEAN'), xlabel('sample')
+
+% % % idx = (SOILFET(:,9) < 2.27); % Filter Outlier
+% % % % OCM = SOILFET(:,9);
+% % % % SANDM = SOILFET(:,4);
+% % % % SILTM = SOILFET(:,5); 
+% % % % CLAYM = SOILFET(:,6); 
+% % % % BULKM = SOILFET(:,7);
+% % % % 
+% % % % OCn = OCM(idx);
+% % % % SANDn = SANDM(idx);
+% % % % SILTn = SILTM(idx);
+% % % % CLAYn = CLAYM(idx);
+% % % % BULKn = BULKM(idx);
+% % % % figure, boxplot([OCCLEAN, BULKn],'Notch','on','Labels',{'OC(dg/kg) /100', 'BULK(cg/cm3)/100'}), grid on, title('MEAN'), xlabel('sample')
+% % % % 
+% % % % figure, boxplot([SANDn, CLAYn, SILTn],'Notch','on','Labels',{'Sand/1000','Silt/1000', 'Clay/1000'}), grid on, title('MEAN'), xlabel('sample'), ylabel('g/Kg')
+% % % 
+% % % 
+% % % SOILFET = SOILFET(idx,:);
+
+%% ****************************************************************************************
+S = SOILFET(:,4);  % SAND(0.X --> OK)         %SILT = SOILFET(:,5);
+C = SOILFET(:,6);  % CLAY(0.X --> OK)
+OC = SOILFET(:,9);  % OM 
+OM = OC.*1.72;
+T15t = -0.024.*S + 0.487.*C + 0.006.*OM + 0.005.*S.*OM - 0.013.*C.*OM + 0.068.*S.*C + 0.031;
+T15 = T15t + 0.14.*T15t - 0.02;
+SLLL = T15; % WP
+
+T33t = -0.251.*S + 0.195.*C + 0.011.*OM + 0.006.*S.*OM - 0.027.*C.*OM + 0.425.*S.*C + 0.299;
+T33 = T33t + 1.283.*(T33t.^2) - 0.374.*T33t - 0.015;
+SDUL = T33; % FC
+
+Ts33t = 0.278.*S + 0.034.*C + 0.022.*OM - 0.018.*S.*OM - 0.027.*C.*OM - 0.584.*S.*C + 0.078;
+Ts33 = Ts33t + 0.636.*Ts33t - 0.107;
+SSAT = T33 + Ts33 - 0.097.*S + 0.043; % SAT
+
+sand = round(SOILFET(:,4)*100);
+clay = round(SOILFET(:,6)*100);
+silt = 100-(sand+clay);
+for i = 1 : numel(sand)
+    [soilTexture(i,1), SLLLb, SDULb, SSATb, SSKS(i,1) ] = SOILtype(sand(i), silt(i), clay(i));
+end
+
+% % % idx2 = (SLLL > 0.099); ii  
+% % % SOILFET = SOILFET(idx2,:);
+% % % SLLL = SLLL(idx2,:);
+% % % SDUL = SDUL(idx2,:);
+% % % SSAT = SSAT(idx2,:);
+% % % SSKS = SSKS(idx2,:);
+
+% figure, boxplot([SLLL, SDUL, SSAT],'Notch','on','Labels',{'SLLL %','SDUL %','SSAT%'}), grid on, title('MEAN'), xlabel('sample')
+% figure, boxplot([SOILFET(:,4), SOILFET(:,5), SOILFET(:,6)],'Notch','on','Labels',{'Sand/1000','Silt/1000', 'Clay/1000'}), grid on, title('MEAN'), xlabel('sample'), ylabel('g/Kg')
+% figure, boxplot([SOILFET(:,9), SOILFET(:,7)],'Notch','on','Labels',{'OC(dg/kg) /100', 'BULK(cg/cm3)/100'}), grid on, title('MEAN'), xlabel('sample')
+% figure, boxplot([SOILFET(:,11)],'Notch','on','Labels',{'PH'}), grid on, title('MEAN'), xlabel('sample')
+
+Tm = [SOILFET, SLLL, SDUL, SSAT]; 
+T = array2table( [SOILFET(:,1:3), SOILFET(:,4).*100, SOILFET(:,5).*100, SOILFET(:,6).*100,  SOILFET(:,7:11), SOILFET(:,12), SOILFET(:,13), SLLL, SDUL, SSAT, SSKS] );
+
+T.Properties.VariableNames = [{'LON'}, {'LAT'},{'ELEV'}, {'sand'}, {'silt'}, {'clay'}, {'BULK'}, {'COARSE'}, {'OrganicCarbon'}, {'N'}, {'PH'},  {'No.DB1'}, {'Region'}, {'SLLL'}, {'SDUL'}, {'SSAT'}, {'SSKS'}];
+T.SLLL((SSKS == -99)) = repmat(-99, sum(SSKS == -99), 1);
+T.SDUL((SSKS == -99)) = repmat(-99, sum(SSKS == -99), 1);
+T.SSAT((SSKS == -99)) = repmat(-99, sum(SSKS == -99), 1);
+T.SSKS((SSKS == -99)) = repmat(-99, sum(SSKS == -99), 1);
+
+if LAYER == 1
+    save("T1N.mat","Tm", "T"); writetable(T,'TG10191N.csv')  % TgridCEAN1.csv 
+end
+if LAYER == 2
+    save("T2N.mat","Tm", "T"); writetable(T,'TG10192N.csv')
+end
+if LAYER == 3
+    save("T3N.mat","Tm", "T"); writetable(T,'TG10193N.csv')
+end
+
+end
