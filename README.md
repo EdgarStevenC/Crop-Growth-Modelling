@@ -13,3 +13,8 @@ The goal of MCM is to simulate plant growth as the product of a series of intera
 [1] https://doi.org/10.1007/s13593-022-00854-9
 [2] https://doi.org/10.1093/jxb/erp375
 [3] https://doi.org/10.1093/jxb/erz175
+
+
+<p align="center">
+<img src="./media/MCM_CERES-Rice_ML.png" alt="drawing" width="1000"/>  
+</p>
