@@ -21,4 +21,10 @@ Figure No.2: Relative Sensitivity Index (RSI) for CERES-Rice crop growth model. 
 
 <br>
 - Main Code --> MAIN_sensitivity.m
+<br>
 
+Matlab R20204b - Install packages
+
+matlab.addons.install('Statistics and Machine Learning Toolbox')
+
+matlab.addons.install('Deep Learning Toolbox')
