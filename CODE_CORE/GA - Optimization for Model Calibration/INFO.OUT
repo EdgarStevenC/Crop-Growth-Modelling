@@ -1,0 +1,112 @@
+*INFO DETAIL FILE
+
+******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.8.2.000 -release  FEB 18, 2025 01:32:02
+
+*RUN   1        : F1 NE 4                            CRDA1201    1
+
+ EXPERIMENT     : CRDA1201 WH ESSAI VARIETE DAROU PAKA 2012
+ DATA PATH      :
+ TREATMENT  1   : F1 NE 4
+  
+
+ MAKEFW  YEAR DOY =    0   0
+ Y4KDOY - Weather file                                                         
+ Not able to find 7-digits first weather date                                  
+ Set simulation to 5-digits first weather date                                 
+
+ CSM     YEAR DOY = 2012 153
+ RNMODE = B                                                                    
+ PATHEX =                                                                      
+ FILEX  = CRDA1201.WHX                                                         
+ FILEB  = DSSBatch.V48                                                         
+ FILEIO = DSSAT48.INP                                                          
+ MODEL  = RICER048                                                             
+ TRTNUM =     1                                                                
+
+ SOILDYN  YEAR DOY = 2012 153
+ The soil file has missing or invalid data.                                    
+ Default values have been used for these variables:                            
+   CEC, ADCOEF, SAEA                                                           
+ These defaults may or may not be important to your results.                   
+
+ RETC  YEAR DOY = 2012 153
+ Soil RETC parameters:                                                         
+  LYR DS  SWCN   WCR    Hb Lambd  Alpha     m     n Texture                    
+   1   5 21.00 0.038   0.0 0.215  0.048 0.395 1.652 Sand                       
+   2  15 21.00 0.039   0.0 0.213  0.049 0.391 1.643 Sand                       
+   3  20 21.00 0.040   0.0 0.206  0.050 0.388 1.633 Sand                       
+   4  47 21.00 0.035   0.0 0.247  0.047 0.397 1.658 Sand                       
+   5  73 21.00 0.035   0.0 0.247  0.047 0.397 1.658 Sand                       
+   6 100 21.00 0.035   0.0 0.247  0.047 0.397 1.658 Sand                       
+
+ SETPM     YEAR DOY = 2012 153
+ Simulating flat surface with no plastic mulch.                                                                               
+
+ SOILDYN  YEAR DOY = 2012 153
+ Soil ID: CR06002014                                                           
+   DAROUPAKAT14                                                                
+ -99                                                                           
+   SALB SWCON    CN  DMOD  SLPF SMPX                                           
+   0.13  0.60  76.0  1.00  0.60 IB001                                          
+ Soil layer distribution method: 2                                             
+      DS DLAYR    LL   DUL   SAT  Root    BD    OC  CLAY  SILT  SAND           
+ LYR  cm    cm  frac  frac  frac  Grow g/cm3     %     %     %     %    pH     
+   1   5     5 0.063 0.111 0.399 1.000  1.53  0.30   5.7   3.2  91.1   6.2     
+   2  15    10 0.064 0.112 0.399 1.000  1.53  0.28   6.2   2.9  90.9   6.9     
+   3  20     5 0.066 0.113 0.399 1.000  1.53  0.25   6.7   2.6  90.7   7.7     
+   4  47    27 0.057 0.112 0.399 0.301  1.53  0.27   4.8   6.6  88.6   7.0     
+   5  73    26 0.057 0.112 0.399 0.301  1.53  0.27   4.8   6.6  88.6   7.0     
+   6 100    27 0.057 0.112 0.399 0.301  1.53  0.27   4.8   6.6  88.6   7.0     
+
+ SOILDYN  YEAR DOY = 2012 153
+ Additional soil properties                                                    
+                Convert                                                        
+    Cation Adsrp  ppm /  KSAT  SLCF  TOTN  OrgN                                
+   L  Exch  Coef  kg/ha  cm/h     %     % kg/ha                                
+   1  15.5   0.0   1.31  21.0   0.0  0.01    76                                
+   2  15.5   0.0   0.65  21.0   0.0  0.01   153                                
+   3  15.5   0.0   1.31  21.0   0.0  0.01    76                                
+   4  15.5   0.0   0.24  21.0   0.0  0.01   413                                
+   5  15.5   0.0   0.25  21.0   0.0  0.01   398                                
+   6  15.5   0.0   0.24  21.0   0.0  0.01   413                                
+
+ IPWTH   YEAR DOY = 2012 153
+ DARO1201.WTH                                                                  
+ Found daily weather data headers for:                                         
+   SRAD           Col   7 -  11                                                
+   TMAX           Col  13 -  17                                                
+   TMIN           Col  19 -  23                                                
+   RAIN           Col  25 -  29                                                
+   DEWP           Col  31 -  35                                                
+   WIND           Col  37 -  41                                                
+   PAR            Col  43 -  47                                                
+   RHUM           Col  55 -  59                                                
+
+ CO2VAL  YEAR DOY = 2012 153
+  784 CO2 data points read from file.                                          
+ C:\DSSAT48\StandardData\CO2048.WDA                                            
+
+ SOMINI  YEAR DOY = 2012 153
+ Initial SOM fractions (fraction of total soil organic matter):                
+                      SAND   TOC  FOMC  SOMC  SOM1  SOM2  SOM3                 
+  Lyr Dep Texture       %     %     %     %   frac  frac  frac Method          
+   1   5 Sand         91.1 0.301 0.002 0.299 0.016 0.307 0.676 Regression eqn  
+   2  15 Sand         90.9 0.276 0.001 0.275 0.013 0.239 0.748 Regression eqn  
+   3  20 Sand         90.7 0.251 0.001 0.250 0.008 0.158 0.834 Regression eqn  
+   4  47 Sand         88.6 0.273 0.001 0.272 0.006 0.113 0.881 Regression eqn  
+   5  73 Sand         88.6 0.273 0.000 0.273 0.006 0.114 0.880 Regression eqn  
+   6 100 Sand         88.6 0.273 0.000 0.273 0.006 0.114 0.880 Regression eqn  
+
+ SENLIG  YEAR DOY = 2012 153
+ Default values used for plant lignin fractions.                               
+
+ TILEVENT  YEAR DOY = 2012 184
+              -- Lyr Thick (cm)--  --Blk dens (g/cm3)- ---- SOM-BD --------    
+                DL1    DL2    DL3    BD1    BD2    BD3   BDS1   BDS2   BDS3    
+ Before till  5.000 10.000  5.000  1.530  1.530  1.530  1.530  1.530  1.530    
+ After till   5.556 10.556  5.000  1.377  1.449  1.530                         
+
+ ENDRUN  YEAR DOY = 2012 333
+ Normal end of run        1                                                    

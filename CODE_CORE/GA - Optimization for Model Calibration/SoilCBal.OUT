@@ -1,0 +1,34 @@
+*Soil Carbon Balance
+
+*DSSAT Cropping System Model Ver. 4.8.2.000 -release  FEB 18, 2025 01:32:02
+
+*RUN   1        : F1 NE 4                   RICER048 CRDA1201    1
+ MODEL          : RICER048 - Rice
+ EXPERIMENT     : CRDA1201 WH ESSAI VARIETE DAROU PAKA 2012
+ DATA PATH      :
+ TREATMENT  1   : F1 NE 4                   RICER048
+  
+
+!                                                 Initial               Final
+!                                                Year/DOY            Year/DOY
+!                                                2012-152            2012-152
+! SOIL C BALANCE                                 --------- kg[C]/ha ---------
+!  SOIL & SURFACE ORGANIC C
+!   Soil Organic C                               41776.80            41111.28
+!   Surface Organic C                                0.00                6.47
+!   Soil Litter C                                   84.00               13.58
+!   Surface Litter C                                 0.00              217.16
+!   Soil methane C stored                            0.00                0.00
+!                                                --------            --------
+!   Total C in Soil and Surface Layers           41860.80            41348.49
+!  ADDITIONS AND REMOVALS:
+!   C in Harvest Residues from Previous              0.00
+!   C from Organic Applications                      0.00
+!   C in returned senesced material                232.20
+!   CO2-C emitted                                  744.50
+!   CH4-C emitted                                    0.00
+!   CH4-C leached                                    0.00
+!   CH4-C plant uptake                               0.00
+!                                                --------            --------
+! TOTAL C BALANCE                                42093.00            42092.99
+!   Balance                                                            -0.005

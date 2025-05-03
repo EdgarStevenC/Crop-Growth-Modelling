@@ -1,0 +1,41 @@
+function Pop_out=Crossover_parents(Pop)
+% Tamaño poblacion
+SPob=size(Pop,1);
+% Tamaño genotipo
+SInd=size(Pop(1,1).gentype,2);
+Pop_out=Pop;
+for i=1:SPob
+     pool = [1:1:SPob];
+     % CP = logical(randi([0, 1], 1,SInd)); % Crop_Parameter 
+
+     idx = randi([numel(pool)]);
+     T = pool(idx); pool(idx) = []; 
+     Parent1=Pop(T,:).gentype;
+
+     idx = randi([numel(pool)]);
+     T = pool(idx); pool(idx) = []; 
+     Parent2=Pop(T,:).gentype;
+     
+     Child1 = (Parent1 + Parent2)/2; % arithmetic crossover 
+
+     ind=Create_ind(SInd);
+     ind.gentype=Child1;
+     Pop_out(i,1)=ind;
+
+   % PosIni=ceil(SInd*rand());
+   % SGen=ceil((SInd-PosIni)*rand());
+   % C1=PosIni;
+   % C2=PosIni+SGen;
+   % 
+   % Child1=zeros(1,SInd);
+   % Child2=zeros(1,SInd);   
+   % 
+   % Child1(C1:C2)=Parent1(C1:C2);
+   % Child1=map_par(Parent2,Child1,1,C1-1);
+   % Child1=map_par(Parent2,Child1,C2+1,SInd);
+   % 
+   % Child2(C1:C2)=Parent2(C1:C2);
+   % Child2=map_par(Parent1,Child2,1,C1-1);
+   % Child2=map_par(Parent1,Child2,C2+1,SInd);
+
+end

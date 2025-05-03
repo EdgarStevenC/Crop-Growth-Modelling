@@ -1,0 +1,31 @@
+*WARNING DETAIL FILE
+
+******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.8.2.000 -release  FEB 18, 2025 01:32:02
+
+*RUN   1        : F1 NE 4                   RICER048 CRDA1201    1
+ MODEL          : RICER048 - Rice
+ EXPERIMENT     : CRDA1201 WH ESSAI VARIETE DAROU PAKA 2012
+ DATA PATH      :
+ TREATMENT  1   : F1 NE 4                   RICER048
+  
+
+ SOILDYN  YEAR DOY = 2012 153
+ Soil photosynthesis factor (SLPF) = 0.60                                      
+
+ IPWTH   YEAR DOY = 2012 153
+ Value of TAV, average annual soil temperature, is missing.                    
+ A default value of 20.0°C is being used for this simulation,                 
+ which may produce inaccurate results.                                         
+
+ TILLAGE  YEAR DOY = 2012 153
+ User-specified tillage depth greater than that specified by tillage implement.
+ Tillage operation date: 2012 184                                              
+ TI007: Disk plow                                                              
+ User-specified depth = 25.0 cm                                                
+ Implement depth of     10.0 cm will be used.                                  
+
+ AUTHAR  YEAR DOY = 2012 333
+ Conditions not met during defined window for harvesting                       
+ between DAY 2012 332 and DAY 2001   1                                         
