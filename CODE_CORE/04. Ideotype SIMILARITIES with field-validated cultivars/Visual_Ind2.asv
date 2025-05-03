@@ -1,0 +1,95 @@
+function [] = Visual_Ind2(ind_best)
+figure
+%% List of variable names
+var_names = {'Grain_Yield', 'Biomass', 'Grain_Number', 'Tiller_Number', ...
+    'Anthesis', 'Cycle', 'Leaf_per_Stem', 'Leaf_Area_Index', ...
+    'Root_Depth', 'Root_Density', 'DT1', 'DT2', 'DT3', 'DT4', ...
+    'DT5', 'DT6', 'DT7', 'Evapotranspiration', 'HI', 'WUE'};
+
+% Extract each variable dynamically
+for i = 1:length(var_names)
+    var_name = var_names{i};
+    eval([ var_name ' = mean( ind_best.phenotype.' var_name ');']);
+end
+%%
+
+% Initialize data points
+D1 = [Grain_Yield, Biomass, Grain_Number, Tiller_Number, Leaf_Area_Index, Root_Depth, Evapotranspiration, HI, WUE];
+P = D1;
+
+% Calcular límites automáticamente con un pequeño margen
+min_vals = min(D1) * 0.9;  % Reducir un 10% para margen
+max_vals = max(D1) * 1.1;  % Aumentar un 10% para margen
+
+% Crear matriz de límites con el mismo número de columnas que D1
+axes_limits = [repmat(min_vals, 1, length(D1));  % Primera fila: mínimos
+               repmat(max_vals, 1, length(D1))]; % Segunda fila: máximos
+
+
+% Nombres de las variables para las etiquetas
+labels = {'Grain Yield(Kg/Ha)', 'Biomass(Kg/Ha)', 'Grain Number(#/m2)', 'Tiller Number(#/m2)', 'Leaf Area Index(m2/m2)', 'Root Depth(m)', 'Evapotranspiration(mm)', 'HI', 'WUE(Kg/mm)'};
+labels = arrayfun(@(x, y) sprintf('%s: %.2f', labels{x}, D1(x)), 1:length(D1), 'UniformOutput', false);
+
+
+% Gráfico de araña
+colormap(flipud(hot));
+spider_plot(P,...
+    'AxesInterval', 3,...
+    'AxesPrecision', 0,...
+    'AxesLimits', axes_limits,... 
+    'AxesDisplay', 'one',...
+    'AxesLabelsEdge', 'none',...
+    'AxesWebType', 'circular',...
+    'AxesStart', 1,...
+    'Direction', 'counterclockwise',...
+    'Color', 'r',...
+    'FillOption', 'interp',...
+    'FillTransparency', 0.9,...
+    'FillCData', D1,...
+    'AxesLabels', labels); 
+
+
+
+f1 = gcf;
+f1.Position = [615.0000  172.3333  978.6667  769.3334];
+    
+
+values = ind_best.gentype;
+cropP = {'P1', 'P5', 'P2R', 'PHINT', 'P2O', 'G1', 'G2', 'G3'};
+title_text = sprintf('%s: %.4f, %s: %.4f, %s: %.4f, %s: %.4f, %s: %.4f, %s: %.4f, %s: %.4f, %s: %.4f', ...
+    cropP{1}, values.P1, cropP{2}, values.P5, cropP{3}, values.P2R, cropP{4}, values.PHINT, ...
+    cropP{5}, values.P2O, cropP{6}, values.G1, cropP{7}, values.G2, cropP{8}, values.G3);
+title(title_text, 'FontSize', 12, 'Interpreter', 'none');
+%% ************************************************************************
+%% SAVE COPY
+% gID = readmatrix('Populations/IND/N.txt');
+% saveas(gcf, strcat('Populations/IND/', num2str(gID), '.png') );
+% saveas(gcf, strcat('Populations/IND/FIG/', num2str(gID), '.fig') );
+% 
+% fileID = fopen('Populations/IND/N.txt', 'w'); 
+% fprintf(fileID, num2str(gID+1));
+% fclose(fileID); 
+
+end
+
+
+% Grain_Yield (Rendimiento de grano) 
+% Biomass (Biomasa) 
+% Grain_Number (Número de granos) 
+% Tiller_Number (Número de macollos)
+% Leaf_Area_Index (LAI) 
+% Root_Depth & Root_Density 
+% Evapotranspiration 
+% HI (Índice de cosecha) 
+% WUE (Eficiencia en el uso del agua) 
+
+
+% if isa(N4D.L_SD(end), 'double'),  LS = N4D.L_SD(end);else, LS = 0; end  % Lea f per stem(#)
+% if isa(N4M.LAIX, 'double'),  LAI = N4M.LAIX;  else,LAI = 0; end    % Leaf area index(m2/m2) 
+% if isa(N4M.HWAM, 'double'),  GY = N4M.HWAM;  else, GY = 0; end     % Grain yiled(Kg/Ha)
+% if isa(N4M.CWAM, 'double'),  BSS = N4M.CWAM; else, BSS=0;  end     % Biomass(Kg/Ha)
+% if isa((N4D.G_AD), 'double'),NG = max(N4D.G_AD); else, NG=0; end   % Grain Number(#/m2) 
+% if isa((N4D.T_AD), 'double'),NT = max(N4D.T_AD); else, NT=0; end   % Tiller number(#/m2)
+% if isa((N4D.RDPD), 'double'),RD = max(N4D.RDPD); else, RD=0; end   % Root depht(m)
+% if isa((N4D.RL1D), 'double'),RL = max(N4D.RL1D); else, RL=0; end   % Root density (cm/cm3)
+% if isa(sum(ET.ETAA), 'double'),ET = sum(ET.ETAA);  else, ET=0; end   % SUM[Evapotranspiration (mm/d)]
