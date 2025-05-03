@@ -18,3 +18,102 @@ The goal of MCM is to simulate plant growth as the product of a series of intera
 <p align="center">
 <img src="./media/MCM_CERES-Rice_ML.png" alt="drawing" width="1000"/>  
 </p>
+
+
+# Project: Rice Crop Ideotype Optimization with CERES-Rice Model
+**Software**: MathWorks (2024). MATLAB (Version 2024b)
+
+---
+
+## Code Structure
+
+### 1. Environment Characterization
+- **Main Code**: `MAIN_CLUSTER.m`
+- **Functions**:
+  - `SOILcluster.m`
+  - `CLIMcluster.m`
+  - `graphicENVIRONMENTS.m`
+- **Output**:
+  - `Results/CLIM_CLUSTER_GMM`
+  - `Results/SOIL_CLUSTER_GMM`
+  - `Results/SOIL(1-2-3)`
+
+---
+
+### 1_. Environment Representation - Convex Hull
+- **Main Code**: `MAIN1_Environment_representation.m`
+- **Functions**:
+  - `convhullMAP.m`
+  - `POPULATION_READ.m`
+  - `graphicENVIRONMENTS.m`
+- **Output**:
+  - `Results/Environment`
+
+---
+
+### 2. Sensitivity Analysis
+- **Main Code**: `MAIN_sensitivity.m`
+- **Functions**:
+  - `sensitivity.m`
+  - `MECHANISTIC.m`
+  - `SENgraph2.m`
+  - `generateRSITable.m`
+- **Output**:
+  - `RelativeSensitivityIndex.xlsx`
+
+---
+
+### 3. Genetic Algorithm Optimization - Ideotype Design
+- **Main Code**: `MAIN_2.m`
+- **Functions**:
+  - `Pop_ini.m`
+  - `eval_fitness_csm.m`
+  - `CERES_Rice.m`
+  - `Select_parents.m`
+  - `Crossover_parents.m`
+  - `Mutation.m`
+  - `Visual_Ind.m`
+- **Output**:
+  - `Ideotype.xlsx`
+
+---
+
+### 4. Ideotype Similarity Analysis
+- **Main Code**: `MAIN_2_INTEGRATE.m`
+- **Functions**:
+  - `POPULATION_READ.m`
+  - `Visual_Ind2.m`
+- **Output**:
+  - `Results/Genotypic_similarity_with_progeny`
+
+---
+
+### 4_. Ideotype Visualization - "HI-WUE" Analysis
+- **Main Code**: `MAIN_2RESULTS.m`
+- **Output**:
+  - `Results/Regressor`
+
+---
+
+### GA Optimization for Model Calibration
+- **Main Code**: `MAIN_GA.m`
+- **Functions**:
+  - `Pop_ini.m`
+  - `eval_fitness_csm.m`
+  - `CERES_Rice.m`
+  - `Select_parents.m`
+  - `Crossover_parents.m`
+  - `Mutation.m`
+  - `Visual_Ind.m`
+- **Output**:
+  - `AG3.mat (AG3.ind_best)`
+  - `Results/`
+
+---
+
+## Notes
+- All outputs are organized inside the `Results/` folder.
+- Ensure that required toolboxes for clustering, optimization, and statistics are available in MATLAB 2024b.
+- For any environment-specific data inputs (climate or soil), please follow the provided input data format guidelines.
+
+---
