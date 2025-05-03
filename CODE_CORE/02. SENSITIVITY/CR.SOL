@@ -1,1 +1,9 @@
-
+*CR06002014
+@SITE        COUNTRY          LAT     LONG SCS FAMILY
+ DAROUPAKAT  SENEGAL         13.83  -13.91 -99
+@ SCOM  SALB  SLU1  SLDR  SLRO  SLNF  SLPF  SMHB  SMPX  SMKE
+     G  0.13     6   0.6    76     1   0.6 IB001 IB001 IB001
+@  SLB  SLMH  SLLL  SDUL  SSAT  SRGF  SSKS  SBDM  SLOC  SLCL  SLSI  SLCF  SLNI  SLHW  SLHB  SCEC  SADC
+    15   -99  0.16  0.26  0.41  1.00  0.43  1.59   0.8  25.61  19.5  0.1  0.08   6.2   -99   -99   -99
+    60   -99  0.18  0.29  0.41  1.00  0.43  1.59   0.5  29.6  19.0  0.1  0.04   6.0   -99   -99   -99
+   100   -99  0.18  0.28  0.40  0.30  0.43  1.61   0.3  28.7  18.9  0.1  0.03   6.0   -99   -99   -99
