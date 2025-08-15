@@ -1,7 +1,7 @@
 ## Derived Publications
 The following publications are derived from this study:
 -  Edgar S. Correa, Francisco C. Calderon, Julian D. Colorado et al. AI-driven remote sensing for environmental characterization and rice crop modeling in water-limited regions, 16 April 2025, PREPRINT (V1) available at Research Square [https://doi.org/10.21203/rs.3.rs-6440110/v1]
--  Edgar S. Correa. Mechanistic crop modelling for ideotype optimization: Regional strategies to enhance yield and water use efficiency
+-  Edgar S. Correa. Mechanistic crop modelling for ideotype optimization: Regional strategies to enhance yield and water use efficiency [https://doi.org/10.1101/2025.05.15.652350]
 
 # **Crop-Growth-Modelling**
 
