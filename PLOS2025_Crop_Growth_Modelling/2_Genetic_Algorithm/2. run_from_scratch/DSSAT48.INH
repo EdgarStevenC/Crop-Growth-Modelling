@@ -1,0 +1,98 @@
+*EXP.DETAILS: CRDA1201WH ESSAI VARIETE DAROU PAKA 2012                               
+
+*FILES
+@N  EXP.DATA    AFILE        ADIR
+  1 EXP         CRDA1201.WHA                                                                                 
+@N  SPECIES     SPFILE       SPDIR
+  1 SPE         RICER048.SPE C:\DSSAT48\GENOTYPE\                                                            
+@N  ECOTYPE     EFILE        EDIR
+  1 ECO         RICER048.ECO C:\DSSAT48\GENOTYPE\                                                            
+@N  CULTIVAR    CFILE        CDIR
+  1 CUL         RICER048.CUL C:\DSSAT48\GENOTYPE\                                                            
+@N  SOIL        SFILE        SDIR
+  1 SOIL        CR.SOL                                                                                       
+@N  WEATHER     WFILE        WDIR
+  1 WEATH       DARO1201.WTH                                                                                 
+
+*SIMULATION CONTROL
+@N  GENERAL     NYERS NREPS START   SDATE RSEED SNAME.................... MODEL...
+  1 GE              1     1     S 2012153  2150 DEFAULT SIMULATION CONTR  RICER048
+@N  OPTIONS     WATER NITRO SYMBI PHOSP POTAS DISES  CHEM  TILL   CO2
+  1 OP              Y     N     N     N     N     N     N     Y     M
+@N  METHODS     WTHER INCON LIGHT EVAPO INFIL PHOTO HYDRO NSWIT SOMDY MESEV MESOL METMP MEGHG
+  1 ME              M     M     E     R     S     C     R     1     P     S     2     D     0
+@N  MANAGEMENT  PLANT IRRIG FERTI RESID HARVS
+  1 MA              R     N     R     N     A
+@N  OUTPUTS     FNAME OVVEW SUMRY FROPT GROUT CAOUT WAOUT NIOUT MIOUT DIOUT  LONG CHOUT OPOUT
+  1 OU              N     Y     Y     1     Y     Y     Y     Y     Y     N     Y     N     Y
+
+!AUTOMATIC MANAGEM
+@N  PLANTING      PFRST   PLAST PH2OL PH2OU PH2OD PSTMX PSTMN
+  1 PL              -99     -99   40.  100.   30.   40.   10.
+@N  IRRIGATION  IMDEP ITHRL ITHRU IROFF IMETH IRAMT IREFF
+  1 IR            30.   50.  100. GS000 IR001  10.0 1.000
+@N  NITROGEN    NMDEP NMTHR NAMNT NCODE NAOFF
+  1 NI            30.   50.   25. FE001 GS000
+@N  RESIDUES    RIPCN RTIME RIDEP
+  1 RE           100.     1   20.
+@N  HARVEST     HFRST   HLAST HPCNP HRCNR
+  1 HA              0 2001001  100.    0.
+
+*TREATMENTS
+@N   R O C TNAME....................  CU  FL  SA  IC  MP  MI  MF  MR  MC  MT  ME  MH  SM
+  1  1 1 0 F1 NE 4                     1   1   0   1   1   0   1   0   1   1   0   1   1
+
+*CULTIVARS
+@C  CR INGENO CNAME
+  1 RI AR0002 NERICA 4        
+
+*FIELDS
+@L  ID_FIELD WSTA....  FLSA  FLOB  FLDT  FLDD  FLDS  FLST SLTX   SLDP ID_SOIL    PMALB  PMWD
+  1 DARO0003 DARO1201   0.0  -99. DR000  -99.  100.   -99 S      100. CR06002014-99.00 -99.0
+@L             XCRD            YCRD      ELEV              AREA  SLEN  FLWR  SLAS PRMGT
+  1       -15.84000        13.96000     27.00            1200.0   60.   3.0 -99.0 FH101   -99
+
+*INITIAL CONDITIONS
+@C  PCR     ICDAT  ICRT  ICND  ICRN  ICRE  ICWD ICRES ICREN ICREP ICRIP ICRID
+  1 PN    2012153   200    10  1.00  1.00 -99.0   -99 -9.00 -9.00  -99.  -99.
+@C   ICBL  SH2O  SNH4  SNO3
+  1    5. 0.240   0.0   0.0
+  1   15. 0.240   0.0   0.0
+  1   30. 0.280   0.0   0.0
+  1   45. 0.280   0.0   0.0
+  1   60. 0.280   0.0   0.0
+  1   80. 0.280   0.0   0.0
+  1  100. 0.280   0.0   0.0
+
+*PLANTING DETAILS
+@P    PDATE   EDATE  PPOP  PPOE  PLME  PLDS  PLRS  PLRD  PLDP  PLWT  PAGE  PENV  PLPH  SPRL
+  1 2012195 2012199  60.0  60.0     S     H   25.  -99.   2.0  -99.  -99. -99.0 -99.0 -99.0
+
+*IRRIGATION
+@I   IEFF  IDEP  ITHR  IEPT  IOFF  IAME  IAMT
+  0 1.000    0.    0.    0. GS000 IR001   0.0
+@I    IDATE  IROP IRVAL
+
+*FERTILIZERS
+@F    FDATE  FMCD  FACD  FDEP  FAMN  FAMP  FAMK  FAMC  FAMO  FOCD
+  1 2012202 FE003 AP002    5.   30.   30.   30.  -99.  -99.   -99
+  1 2012222 FE005 AP002    5.   46.    0.    0.  -99.  -99.   -99
+  1 2012252 FE005 AP002    5.   23.    0.    0.  -99.  -99.   -99
+
+*RESIDUES
+@R    RDATE  RCOD  RAMT  RESN  RESP  RESK  RINP  RDEP  RMET
+
+*CHEMICALS
+@C    CDATE CHCOD CHAMT  CHME CHDEP   CHT
+
+*TILLAGE
+@T    TDATE TIMPL  TDEP
+  1 2012184 TI007  25.0
+
+*ENVIRONMENT
+@E    ODATE  EDAY  ERAD  EMAX  EMIN ERAIN  ECO2  EDEW EWIND
+
+*HARVEST
+@H    HDATE  HSTG  HCOM HSIZE   HPC  HBPC
+  1   12334 GS014     H   -99  100.    0.
+  1   12334 GS014     H   -99  100.    0.

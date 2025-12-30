@@ -1,0 +1,34 @@
+*WATER BALANCE OUTPUT FILE
+
+*DSSAT Cropping System Model Ver. 4.8.2.000 -release  DEC 30, 2025 00:11:04
+
+*RUN   1        : F1 NE 4                   RICER048 CRDA1201    1
+ MODEL          : RICER048 - Rice
+ EXPERIMENT     : CRDA1201 WH ESSAI VARIETE DAROU PAKA 2012
+ DATA PATH      :
+ TREATMENT  1   : F1 NE 4                   RICER048
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 2012/153    274.00
+!     Soil H20 (final) on Year/day 2012/286    260.54
+!     Effective Irrigation                       0.00
+!     Precipitation                           1011.90
+!     Water added with new mulch                 0.00
+!     Net lateral flow                           0.00
+!     Drainage                                 334.55
+!     Tiledrain flow                             0.00
+!     Runoff                                    20.95
+!     Mulch evaporation                          0.00
+!     Soil Evaporation                         622.26
+!     Transpiration                             47.58
+!     Total evapotranspiration                 669.84
+!     Total potential evapotranspiration       791.18
+
+!     Initial mulch water content                0.00
+!     Final mulch water content                  0.02
+
+!     Final Balance                             0.000
+

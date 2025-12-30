@@ -1,0 +1,25 @@
+*MANAGEMENT OPERATIONS EVENT SUMMARY
+
+*DSSAT Cropping System Model Ver. 4.8.2.000 -release  DEC 30, 2025 00:11:04
+!---------------------------------------------------------------------------------------------
+@RUN Date........  DOY    DAS    DAP  CR  Stage         Operation       Quantities
+!---------------------------------------------------------------------------------------------
+   1 JUN  1, 2012  153      1      0  RI  14 Start Sim 
+   1 JUL  2, 2012  184     32      0  RI                Tillage           10.0 cm
+   1 JUL 13, 2012  195     43      0  RI                Planting       
+   1 JUL 13, 2012  195     43      0  RI  07 Sowing    
+   1 JUL 15, 2012  197     45      2  RI  08 Germinate 
+   1 JUL 18, 2012  200     48      5  RI  09 Emergence 
+   1 JUL 20, 2012  202     50      7  RI                Fertilizer      
+   1 JUL 26, 2012  208     56     13  RI  01 End Juveni
+   1 AUG  3, 2012  216     64     21  RI  02 Pan Init  
+   1 AUG  9, 2012  222     70     27  RI                Fertilizer      
+   1 AUG 25, 2012  238     86     43  RI  03 Heading   
+   1 SEP  1, 2012  245     93     50  RI  04 Beg Gr Fil
+   1 SEP  8, 2012  252    100     57  RI                Fertilizer      
+   1 OCT  9, 2012  283    131     88  RI  05 End Mn Fil
+   1 OCT 10, 2012  284    132     89  RI  12 End Ti Fil
+   1 OCT 11, 2012  285    133     90  RI  20 Harvest   
+                                             100.0 % yield harvested      490. kg/ha
+                                               0.0 % by-product harv        0. kg/ha
+ 
