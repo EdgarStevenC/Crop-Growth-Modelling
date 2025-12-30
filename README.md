@@ -1,5 +1,10 @@
 # **Crop-Growth-Modelling**
 
+[![DOI](https://zenodo.org/badge/920021299.svg)](https://doi.org/10.5281/zenodo.18094654)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![MATLAB](https://img.shields.io/badge/MATLAB-R2024b-blue.svg)](https://www.mathworks.com/)
+[![DSSAT](https://img.shields.io/badge/DSSAT-v4.8-green.svg)](https://dssat.net/)
+
 <p align="center">
 <img src="./media/MCM2.png" alt="drawing" width="1000"/>  
 </p>
