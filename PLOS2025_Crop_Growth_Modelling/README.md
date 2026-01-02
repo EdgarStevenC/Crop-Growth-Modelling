@@ -203,7 +203,7 @@ If you use this code, please cite:
 
 ## Related Publications
 
-1. Correa, E.S. et al. (2025). Runoff Potential Index (RPI): 3D modelling of surface-driven hydrological dynamics. *Discover Food*.
+1. Correa, E.S. et al. (2025). Ml-enhanced mechanistic crop modeling to address noise-induced uncertainty for drought environmental monitoring in rice. *Discover Food*. 5, 312 (2025). https://doi.org/10.1007/s44187-025-00611-3
 2. Correa, E.S. (2025). Runoff potential index (RPI): 3D modelling of surface-driven hydrological dynamics for drought resilience. *Scientific Reports*. 
 
 ## Acknowledgements
